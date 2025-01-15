@@ -45,4 +45,14 @@ htmlcov/
 
 # Windows
 Thumbs.db
+
+# Ignore all files in the media directory
+
+
+# But don't ignore the media directory itself
+# Ignore all files in the media directory
 /media/*
+
+# But don't ignore the media directory itself
+!/media/
+!/media/.gitkeep
