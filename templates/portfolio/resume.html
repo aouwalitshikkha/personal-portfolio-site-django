@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="site-wrapper">
+  <div class="pt-table">
+    <div class="pt-tablecell page-resume relative">
+      <!-- .close -->
+      <a href="./" class="page-close"><i class="tf-ion-close"></i></a>
+      <!-- /.close -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+            <div class="page-title text-center">
+              <h2>My <span class="primary">history</span> <span class="title-bg">Resume</span></h2>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+          </div>
+        </div> <!-- /.row -->
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="history-block">
+              <div class="section-title light clear">
+                <h3>Education</h3>
+              </div>
+              <!-- /.section-title -->
+              <div class="history-scroller">
+
+                {% for education in educations %}
+
+                <!-- /.history-item -->
+                <div class="history-item">
+                  <div class="history-icon">
+                    <span class="history-hex"></span>
+                    <i class="tf-documents5"></i>
+                  </div>
+                  <div class="history-text">
+                    <h5>{{  education.title }}</h5>
+                    <span>{{education.from_year}} - {{education.end_year}}</span>
+                    <p>{{education.description}}</p>
+                  </div>
+                </div>
+
+                {% endfor %}
+
+
+
+              </div>
+            </div> <!-- /.history-block -->
+          </div> <!-- /.col -->
+          <div class="col-xs-12 col-sm-6">
+            <div class="history-block">
+              <div class="section-title light clear">
+                <h3>Experiences</h3>
+              </div>
+              <!-- /.section-title -->
+              <div class="history-scroller">
+
+                {% for experience in experiences %}
+                <!-- /.history-item -->
+                <div class="history-item">
+                  <div class="history-icon">
+                    <span class="history-hex"></span>
+                    <i class="tf-documents5"></i>
+                  </div>
+                  <div class="history-text">
+                    <h5>{{experience.title}}</h5>
+                    <span>{{experience.from_year}} - {{experience.end_year}}</span>
+                    <p>{{experience.description}}</p>
+                  </div>
+                </div>
+                <!-- /.history-item -->
+                {% endfor %}
+
+              </div>
+            </div> <!-- /.history-block -->
+          </div> <!-- /.col -->
+        </div> <!-- /.row -->
+      </div> <!-- /.container -->
+
+      <nav class="page-nav clear">
+  <div class="container">
+    <div class="flex flex-middle space-between">
+      <span class="prev-page"><a href="{% url 'services' %}" class="link">&larr; Prev Page</a></span>
+      <span class="copyright">Copyright &copy; 2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a>.</span>
+      <span class="next-page"><a href="{% url 'works' %}" class="link">Next Page &rarr;</a></span>
+    </div>
+  </div>
+  <!-- /.page-nav -->
+</nav>
+      <!-- /.container -->
+
+    </div> <!-- /.pt-tablecell -->
+  </div> <!-- /.pt-table -->
+</main> <!-- /.site-wrapper -->
+
+{% endblock %}

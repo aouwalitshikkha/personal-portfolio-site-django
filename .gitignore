@@ -1,0 +1,48 @@
+.idea
+Pipfile
+Pipfile.lock
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migrations
+**/migrations/
+
+# Environment variables
+.env
+
+# Database
+
+# Media files
+
+# Static files
+
+# Virtual environments
+venv/
+env/
+*.egg-info/
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# pytest
+.cache/
+*.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+/media/*
