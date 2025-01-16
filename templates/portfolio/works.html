@@ -23,74 +23,37 @@
           <div class="col-xs-12">
             <ul class="filter list-inline">
               <li><a href="#" class="active" data-filter="*">All</a></li>
-              <li><a href="#" data-filter=".Photoshop">Photoshop</a></li>
-              <li><a href="#" data-filter=".Illustrator">Illustrator</a></li>
-              <li><a href="#" data-filter=".Indesign">Indesign</a></li>
-              <li><a href="#" data-filter=".Artworks">Artworks</a></li>
+              {% for work in works %}
+              <li><a href="#" data-filter=".{{work.project_type}}">{{work.project_type}}</a></li>
+              {% endfor %}
+
             </ul>
           </div>
         </div>
 
         <div class="row isotope-gutter">
-          <div class="col-xs-12 col-sm-6 col-md-4 Photoshop Illustrator">
+          {% for work in works %}
+          <div class="col-xs-12 col-sm-6 col-md-4 {{work.project_type}}">
             <figure class="works-item">
-              <img src="{% static 'images/works/1.jpg' %}" alt="">
+              <img src="{{work.image.url}}" alt="">
               <div class="overlay"></div>
               <figcaption class="works-inner">
-                <h4>Project Name</h4>
-                <p>Illustration, Digital Art</p>
+                <h4>{{work.project_name}}</h4>
+                <p>{{work.description}}</p>
               </figcaption>
             </figure>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 Illustrator">
-            <figure class="works-item">
-              <img src="{% static 'images/works/2.jpg' %}" alt="">
-              <div class="overlay"></div>
-              <figcaption class="works-inner">
-                <h4>Project Name</h4>
-                <p>Illustration, Digital Art</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 Indesign Photoshop">
-            <figure class="works-item">
-              <img src="{% static 'images/works/3.jpg' %}" alt="">
-              <div class="overlay"></div>
-              <figcaption class="works-inner">
-                <h4>Project Name</h4>
-                <p>Illustration, Digital Art</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 Artworks Illustrator">
-            <figure class="works-item">
-              <img src="{% static 'images/works/4.jpg' %}" alt="">
-              <div class="overlay"></div>
-              <figcaption class="works-inner">
-                <h4>Project Name</h4>
-                <p>Illustration, Digital Art</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 Photoshop">
-            <figure class="works-item">
-              <img src="{% static 'images/works/5.jpg' %}" alt="">
-              <div class="overlay"></div>
-              <figcaption class="works-inner">
-                <h4>Project Name</h4>
-                <p>Illustration, Digital Art</p>
-              </figcaption>
-            </figure>
-          </div>
+          {% endfor %}
+
         </div> <!-- /.row -->
       </div> <!-- /.container -->
 
       <nav class="page-nav clear">
   <div class="container">
     <div class="flex flex-middle space-between">
-      <span class="prev-page"><a href="resume.html" class="link">&larr; Prev Page</a></span>
-      <span class="copyright">Copyright &copy; 2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a>.</span>
-      <span class="next-page"><a href="testimonials.html" class="link">Next Page &rarr;</a></span>
+      <span class="prev-page"><a href="{% url 'resume'%}" class="link">&larr; Prev Page</a></span>
+{% include 'partial/copyright.html' %}
+      <span class="next-page"><a href="{% url 'testimonial'%}" class="link">Next Page &rarr;</a></span>
     </div>
   </div>
   <!-- /.page-nav -->
